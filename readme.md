@@ -57,7 +57,9 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Felicio\Felicio;
 
-$felicio = new Felicio();
+$felicioDotFile = __DIR__ . '/.felicio';
+
+$felicio = new Felicio($felicioDotFile);
 
 $felicio->sendMessage('https://sqs.us-west-2.amazonaws.com/000/my_queue', 'message');
 ```
