@@ -9,28 +9,27 @@ use Symfony\Component\Dotenv\Dotenv;
 
 final class Felicio implements FelicioContract
 {
-    public function config()
+    protected $felicioClient;
+
+    public function __construct($dotFelicioFile)
     {
         $dotenv = new Dotenv();
-        $dotenv->load(__DIR__ . '/../.felicio');
+        $dotenv->load($dotFelicioFile);
 
-        return
-            $client = SqsClient::factory([
-                'credentials' => [
-                    'key' => $_ENV['AWS_SQS_ACCESS_KEY'],
-                    'secret' => $_ENV['AWS_SQS_SECRET_KEY']
-                ],
-                'region' => $_ENV['AWS_SQS_REGION'],
-                'version' => 'latest'
-            ]);
+        $this->felicioClient = SqsClient::factory([
+            'credentials' => [
+                'key' => $_ENV['AWS_SQS_ACCESS_KEY'],
+                'secret' => $_ENV['AWS_SQS_SECRET_KEY']
+            ],
+            'region' => $_ENV['AWS_SQS_REGION'],
+            'version' => 'latest'
+        ]);
     }
 
     public function sendMessage($queueURl, $messageBody)
     {
-        $client = $this->config();
-
         try {
-            $client->sendMessage([
+            $this->felicioClient->sendMessage([
                 'QueueUrl' => $queueURl,
                 'MessageBody' => $messageBody,
             ]);
