@@ -5,4 +5,6 @@ services:
     container_name: felicio
     volumes:
       - .:/var/www/app
+    environment:
+      - XDEBUG_ENABLED=true
     tty: true

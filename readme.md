@@ -7,11 +7,11 @@ _A simple AWS SQS Messages with PHP_
 
 ## About Felicio and SQS
 
-Felicio is a simple library to send and receive(_coming soon_) [AWS SQS Messages](https://aws.amazon.com/pt/sqs/).
+Felicio is a simple library to manipulate [AWS SQS Messages](https://aws.amazon.com/pt/sqs/).
 
-- Simple.
-- Configurable.
-- Testable.
+- Simple;
+- Configurable;
+- Testable;
 - Open source.
 
 [Amazon Simple Queue Service (SQS)](https://aws.amazon.com/pt/sqs/) is a fully managed message queuing service 
@@ -49,6 +49,7 @@ Rename `.felicio.example` to `.felicio` and fill in the correct information abou
 AWS_SQS_ACCESS_KEY=
 AWS_SQS_SECRET_KEY=
 AWS_SQS_REGION=
+AWS_SQS_API_VERSION=latest
 ```
 
 ## Send a message
@@ -61,7 +62,12 @@ $felicioDotFile = __DIR__ . '/.felicio';
 
 $felicio = new Felicio($felicioDotFile);
 
-$felicio->sendMessage('https://sqs.us-west-2.amazonaws.com/000/my_queue', 'message');
+$params = [
+    'QueueUrl' => 'https://sqs.us-west-2.amazonaws.com/999999999/my_queue',
+    'MessageBody' => 'test message'
+];
+
+$felicio->sendMessage($params);
 ```
 
 ## Contributing

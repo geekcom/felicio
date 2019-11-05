@@ -13,26 +13,26 @@ namespace Felicio\Test;
 
 use Felicio\Felicio;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\Dotenv\Dotenv;
+use ArgumentCountError;
 
 final class FelicioTest Extends TestCase
 {
     private $instance;
 
-    private $env;
-
     public function setUp(): void
     {
-        $this->env = new Dotenv();
-        $this->instance = new Felicio();
-
-        $this->env->load(__DIR__ . '/../.felicio');
+        $this->instance = new Felicio(__DIR__ . '/../.felicio');
     }
 
-    public function testSendMessageWithoutParameters()
+    public function testSendMessageWithoutRequiredParameters()
     {
-        $this->expectException(\ArgumentCountError::class);
+        $this->expectException(ArgumentCountError::class);
 
-        $this->instance->sendMessage('', '');
+        $params = [
+            'QueueUrl' => '',
+            'MessageBody' => ''
+        ];
+
+        $this->instance->sendMessage($params);
     }
 }
