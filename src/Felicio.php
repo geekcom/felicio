@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Felicio;
 
 use Felicio\Contracts\FelicioContract;
-use Aws\Sqs\SqsClient;
+use Aws\Sdk;
+use Aws\Credentials\Credentials;
 use Aws\Exception\AwsException;
 use Symfony\Component\Dotenv\Dotenv;
 
@@ -11,28 +14,31 @@ final class Felicio implements FelicioContract
 {
     protected $felicioClient;
 
-    public function __construct($dotFelicioFile)
+    public function __construct($felicioDotFile)
     {
         $dotenv = new Dotenv();
-        $dotenv->load($dotFelicioFile);
+        $dotenv->load($felicioDotFile);
 
-        $this->felicioClient = SqsClient::factory([
-            'credentials' => [
-                'key' => $_ENV['AWS_SQS_ACCESS_KEY'],
-                'secret' => $_ENV['AWS_SQS_SECRET_KEY']
-            ],
+        $credentials = new Credentials(
+            $_ENV['AWS_SQS_ACCESS_KEY'],
+            $_ENV['AWS_SQS_SECRET_KEY']
+        );
+
+        $configs = [
+            'credentials' => $credentials,
             'region' => $_ENV['AWS_SQS_REGION'],
-            'version' => 'latest'
-        ]);
+            'version' => $_ENV['AWS_SQS_API_VERSION'],
+        ];
+
+        $sdk = new Sdk($configs);
+
+        $this->felicioClient = $sdk->createSqs();
     }
 
-    public function sendMessage($queueURl, $messageBody)
+    public function sendMessage(array $params): void
     {
         try {
-            $this->felicioClient->sendMessage([
-                'QueueUrl' => $queueURl,
-                'MessageBody' => $messageBody,
-            ]);
+            $this->felicioClient->sendMessage($params);
         } catch (AwsException $e) {
             throw new AwsException();
         }

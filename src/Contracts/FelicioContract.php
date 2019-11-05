@@ -4,5 +4,5 @@ namespace Felicio\Contracts;
 
 interface FelicioContract
 {
-    public function sendMessage($queueURl, $messageBody);
+    public function sendMessage(array $params);
 }
