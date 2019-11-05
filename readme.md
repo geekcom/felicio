@@ -28,7 +28,7 @@ Or in your file'composer.json' add:
 ```json
 {
     "require": {
-        "geekcom/felicio": "^1.0.0"
+        "geekcom/felicio": "^2.0.0"
     }
 }
 ```
