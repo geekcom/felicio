@@ -43,4 +43,16 @@ final class Felicio implements FelicioContract
             throw new AwsException();
         }
     }
+
+    public function receiveMessage(array $params): array
+    {
+        try {
+            return $this->felicioClient
+                ->receiveMessage($params)
+                ->get('Messages');
+
+        } catch (AwsException $e) {
+            throw new AwsException();
+        }
+    }
 }
