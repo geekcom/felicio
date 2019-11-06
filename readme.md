@@ -70,6 +70,29 @@ $params = [
 $felicio->sendMessage($params);
 ```
 
+## Receive a message
+```php
+require __DIR__ . '/vendor/autoload.php';
+
+use Felicio\Felicio;
+
+$felicioDotFile = __DIR__ . '/.felicio';
+
+$felicio = new Felicio($felicioDotFile);
+
+$params = [
+    'AttributeNames' => ['SentTimestamp'],
+    'MaxNumberOfMessages' => 1,
+    'MessageAttributeNames' => ['All'],
+    'QueueUrl' => 'https://sqs.us-west-2.amazonaws.com/999999999/my_queue',
+    'WaitTimeSeconds' => 0,
+];
+
+$message = $felicio->receiveMessage($params);
+
+var_dump($message);
+```
+
 ## Contributing
 
 Feel free to contribute, make a fork!

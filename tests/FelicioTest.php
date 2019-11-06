@@ -35,4 +35,17 @@ final class FelicioTest Extends TestCase
 
         $this->instance->sendMessage($params);
     }
+
+    public function testReceiveMessage()
+    {
+        $params = [
+            'AttributeNames' => ['SentTimestamp'],
+            'MaxNumberOfMessages' => 1,
+            'MessageAttributeNames' => ['All'],
+            'QueueUrl' => '', //required
+            'WaitTimeSeconds' => 0,
+        ];
+
+        $this->assertIsArray($this->instance->receiveMessage($params));
+    }
 }
