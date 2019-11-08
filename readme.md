@@ -93,6 +93,24 @@ $message = $felicio->receiveMessage($params);
 var_dump($message);
 ```
 
+## Delete a message
+```php
+require __DIR__ . '/vendor/autoload.php';
+
+use Felicio\Felicio;
+
+$felicioDotFile = __DIR__ . '/.felicio';
+
+$felicio = new Felicio($felicioDotFile);
+
+$params = [
+    'QueueUrl' => 'https://sqs.us-west-2.amazonaws.com/999999999/my_queue',
+    'ReceiptHandle' => '', // required
+];
+
+$felicio->deleteMessage($params);
+```
+
 ## Contributing
 
 Feel free to contribute, make a fork!
