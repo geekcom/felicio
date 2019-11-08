@@ -35,10 +35,13 @@ final class Felicio implements FelicioContract
         $this->felicioClient = $sdk->createSqs();
     }
 
-    public function sendMessage(array $params): void
+    public function sendMessage(array $params): bool
     {
         try {
-            $this->felicioClient->sendMessage($params);
+            $this->felicioClient
+                ->sendMessage($params);
+
+            return true;
         } catch (AwsException $e) {
             throw new AwsException();
         }
@@ -51,6 +54,18 @@ final class Felicio implements FelicioContract
                 ->receiveMessage($params)
                 ->get('Messages');
 
+        } catch (AwsException $e) {
+            throw new AwsException();
+        }
+    }
+
+    public function deleteMessage(array $params): bool
+    {
+        try {
+            $this->felicioClient
+                ->deleteMessage($params);
+
+            return true;
         } catch (AwsException $e) {
             throw new AwsException();
         }

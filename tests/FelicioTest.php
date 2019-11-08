@@ -36,6 +36,16 @@ final class FelicioTest Extends TestCase
         $this->instance->sendMessage($params);
     }
 
+    public function testSendMessage()
+    {
+        $params = [
+            'QueueUrl' => '',
+            'MessageBody' => 'Message 001'
+        ];
+
+        $this->assertTrue($this->instance->sendMessage($params));
+    }
+
     public function testReceiveMessage()
     {
         $params = [
@@ -47,5 +57,27 @@ final class FelicioTest Extends TestCase
         ];
 
         $this->assertIsArray($this->instance->receiveMessage($params));
+    }
+
+    public function testDeleteMessage()
+    {
+        $params = [
+            'QueueUrl' => '', //required
+            'ReceiptHandle' => '', //required
+        ];
+
+        $this->assertTrue($this->instance->deleteMessage($params));
+    }
+
+    public function testDeleteMessageWithoutParameters()
+    {
+        $this->expectException(ArgumentCountError::class);
+
+        $params = [
+            'QueueUrl' => '', //required
+            'ReceiptHandle' => '', //required
+        ];
+
+        $this->instance->deleteMessage($params);
     }
 }
