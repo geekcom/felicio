@@ -6,8 +6,8 @@ namespace Felicio;
 
 use Felicio\Contracts\FelicioContract;
 use Aws\Sdk;
-use Aws\Credentials\Credentials;
 use Aws\Exception\AwsException;
+use Aws\Credentials\Credentials;
 use Symfony\Component\Dotenv\Dotenv;
 
 final class Felicio implements FelicioContract
@@ -35,39 +35,44 @@ final class Felicio implements FelicioContract
         $this->felicioClient = $sdk->createSqs();
     }
 
-    public function sendMessage(array $params): bool
+    public function sendMessage(array $params)
     {
         try {
-            $this->felicioClient
-                ->sendMessage($params);
-
-            return true;
+            return $this->felicioClient->sendMessage($params)->get('MessageId');
         } catch (AwsException $e) {
             throw new AwsException();
         }
     }
 
-    public function receiveMessage(array $params): array
+    public function receiveMessage(array $params)
     {
         try {
-            return $this->felicioClient
-                ->receiveMessage($params)
-                ->get('Messages');
-
+            return $this->felicioClient->receiveMessage($params)->get('Messages');
         } catch (AwsException $e) {
             throw new AwsException();
         }
     }
 
-    public function deleteMessage(array $params): bool
+    public function deleteMessage(array $params)
     {
         try {
-            $this->felicioClient
-                ->deleteMessage($params);
-
-            return true;
+            return $this->felicioClient->deleteMessage($params);
         } catch (AwsException $e) {
             throw new AwsException();
         }
+    }
+
+    public function countMessages($queue)
+    {
+        $response = $this->felicioClient->getQueueAttributes(
+            [
+                'QueueUrl' => $queue,
+                'AttributeNames' => ['ApproximateNumberOfMessages'],
+            ]
+        );
+
+        $attributes = $response->get('Attributes');
+
+        return (int)$attributes['ApproximateNumberOfMessages'];
     }
 }
