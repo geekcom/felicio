@@ -111,6 +111,23 @@ $params = [
 $felicio->deleteMessage($params);
 ```
 
+## Count messages
+```php
+require __DIR__ . '/vendor/autoload.php';
+
+use Felicio\Felicio;
+
+$felicioDotFile = __DIR__ . '/.felicio';
+
+$felicio = new Felicio($felicioDotFile);
+
+$queueUrl = 'https://sqs.us-west-2.amazonaws.com/999999999/my_queue';
+
+$messages = $felicio->countMessages($queueUrl);
+
+var_dump($messages);
+```
+
 ## Contributing
 
 Feel free to contribute, make a fork!

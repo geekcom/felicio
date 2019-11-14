@@ -43,7 +43,7 @@ final class FelicioTest Extends TestCase
             'MessageBody' => 'Message 001'
         ];
 
-        $this->assertTrue($this->instance->sendMessage($params));
+        $this->assertIsString($this->instance->sendMessage($params));
     }
 
     public function testReceiveMessage()
@@ -66,7 +66,7 @@ final class FelicioTest Extends TestCase
             'ReceiptHandle' => '', //required
         ];
 
-        $this->assertTrue($this->instance->deleteMessage($params));
+        $this->assertEmpty($this->instance->deleteMessage($params));
     }
 
     public function testDeleteMessageWithoutParameters()
@@ -79,5 +79,12 @@ final class FelicioTest Extends TestCase
         ];
 
         $this->instance->deleteMessage($params);
+    }
+
+    public function testIfExistsMessage()
+    {
+        $queueUrl = ''; //required
+
+        $this->assertGreaterThan(1, $this->instance->countMessages($queueUrl));
     }
 }
