@@ -4,6 +4,14 @@
 
 ## Unreleased
 
+- [#7] update tests, add minor corrections, general improvements, Thanks to [@geekcom]
+
+<!-- dumped content end -->
+
+<!-- dumped content start -->
+
+## Unreleased
+
 - [#6] countMessages method added, new tests, update docs, Thanks to [@geekcom]
 - [#5] add: deleteMessage(), Thanks to [@geekcom]
 - [#4] add: receiveMessage method + test, Thanks to [@geekcom]
@@ -19,3 +27,4 @@
 [#2]: https://github.com/geekcom/felicio/pull/2
 [#1]: https://github.com/geekcom/felicio/pull/1
 [@geekcom]: https://github.com/geekcom
+[#7]: https://github.com/geekcom/felicio/pull/7
