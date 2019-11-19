@@ -5,7 +5,7 @@ _A simple AWS SQS Messages with PHP_
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.3-blue.svg?style=flat-square)](https://php.net/)
 [![License](https://poser.pugx.org/geekcom/felicio/license)](https://packagist.org/packages/geekcom/felicio)
 
-## About Felicio and SQS
+### About Felicio and SQS
 
 Felicio is a simple library to manipulate [AWS SQS Messages](https://aws.amazon.com/pt/sqs/).
 
@@ -17,7 +17,7 @@ Felicio is a simple library to manipulate [AWS SQS Messages](https://aws.amazon.
 [Amazon Simple Queue Service (SQS)](https://aws.amazon.com/pt/sqs/) is a fully managed message queuing service 
 that enables you to decouple and scale microservices, distributed systems, and serverless applications.
 
-## Installation
+### Installation
 
 Install [Composer](http://getcomposer.org) if you don't have it.
 ```
@@ -42,7 +42,7 @@ and thats it.
 ----------------------------------------------------------------------------------------------------------------------------
 
 
-## Configure
+### Configure
 
 Rename `.felicio.example` to `.felicio` and fill in the correct information about your AWS SQS account.
 ```
@@ -52,7 +52,7 @@ AWS_SQS_REGION=
 AWS_SQS_API_VERSION=latest
 ```
 
-## Send a message
+### Send a message
 ```php
 require __DIR__ . '/vendor/autoload.php';
 
@@ -70,7 +70,7 @@ $params = [
 $felicio->sendMessage($params);
 ```
 
-## Receive a message
+### Receive a message
 ```php
 require __DIR__ . '/vendor/autoload.php';
 
@@ -93,7 +93,7 @@ $message = $felicio->receiveMessage($params);
 var_dump($message);
 ```
 
-## Delete a message
+### Delete a message
 ```php
 require __DIR__ . '/vendor/autoload.php';
 
@@ -111,7 +111,7 @@ $params = [
 $felicio->deleteMessage($params);
 ```
 
-## Count messages
+### Count messages
 ```php
 require __DIR__ . '/vendor/autoload.php';
 
@@ -128,14 +128,18 @@ $messages = $felicio->countMessages($queueUrl);
 var_dump($messages);
 ```
 
-## Contributing
+### Contributing
 
 Feel free to contribute, make a fork!
 
-## License
+### License
 
 The Felicio library is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## [Questions?](https://github.com/felicio/issues)
+### [Questions?](https://github.com/felicio/issues)
 
 Open a new [Issue](https://github.com/felicio/issues) or look for a closed issue
+
+### Author
+
+- Daniel Rodrigues ([@geekcom](http://github.com/geekcom))

@@ -2,3 +2,5 @@
 /vendor
 .felicio
 /tests/logs
+.phpunit.result.cache
+.phpcs-cache

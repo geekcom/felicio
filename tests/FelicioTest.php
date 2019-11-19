@@ -1,21 +1,12 @@
 <?php
 
-/*
- * This file is part of the felicio.
- *
- * (c) Daniel Rodrigues (geekcom)
- *
- * For the full copyright and license information, please view the LICENSE.md
- * file that was distributed with this source code.
- */
-
 namespace Felicio\Test;
 
 use Felicio\Felicio;
-use PHPUnit\Framework\TestCase;
 use ArgumentCountError;
+use PHPUnit\Framework\TestCase;
 
-final class FelicioTest Extends TestCase
+final class FelicioTest extends TestCase
 {
     private $instance;
 
@@ -24,7 +15,8 @@ final class FelicioTest Extends TestCase
         $this->instance = new Felicio(__DIR__ . '/../.felicio');
     }
 
-    public function testSendMessageWithoutRequiredParameters()
+    /** @test */
+    public function sendMessageWithoutRequiredParameters()
     {
         $this->expectException(ArgumentCountError::class);
 
@@ -36,7 +28,8 @@ final class FelicioTest Extends TestCase
         $this->instance->sendMessage($params);
     }
 
-    public function testSendMessage()
+    /** @test */
+    public function sendMessage()
     {
         $params = [
             'QueueUrl' => '',
@@ -46,7 +39,8 @@ final class FelicioTest Extends TestCase
         $this->assertIsString($this->instance->sendMessage($params));
     }
 
-    public function testReceiveMessage()
+    /** @test */
+    public function receiveMessage()
     {
         $params = [
             'AttributeNames' => ['SentTimestamp'],
@@ -59,7 +53,8 @@ final class FelicioTest Extends TestCase
         $this->assertIsArray($this->instance->receiveMessage($params));
     }
 
-    public function testDeleteMessage()
+    /** @test */
+    public function deleteMessage()
     {
         $params = [
             'QueueUrl' => '', //required
@@ -69,7 +64,8 @@ final class FelicioTest Extends TestCase
         $this->assertEmpty($this->instance->deleteMessage($params));
     }
 
-    public function testDeleteMessageWithoutParameters()
+    /** @test */
+    public function deleteMessageWithoutParameters()
     {
         $this->expectException(ArgumentCountError::class);
 
@@ -81,7 +77,8 @@ final class FelicioTest Extends TestCase
         $this->instance->deleteMessage($params);
     }
 
-    public function testIfExistsMessage()
+    /** @test */
+    public function ifExistsMessage()
     {
         $queueUrl = ''; //required
 
