@@ -8,6 +8,7 @@ use Felicio\Contracts\FelicioContract;
 use Aws\Sdk;
 use Aws\Exception\AwsException;
 use Aws\Credentials\Credentials;
+use Aws\Result;
 use Symfony\Component\Dotenv\Dotenv;
 
 final class Felicio implements FelicioContract
@@ -35,16 +36,16 @@ final class Felicio implements FelicioContract
         $this->felicioClient = $sdk->createSqs();
     }
 
-    public function sendMessage(array $params)
+    public function sendMessage(array $params): string
     {
         try {
-            return $this->felicioClient->sendMessage($params)->get('MessageId');
+            return (string)$this->felicioClient->sendMessage($params)->get('MessageId');
         } catch (AwsException $e) {
             throw new AwsException();
         }
     }
 
-    public function receiveMessage(array $params)
+    public function receiveMessage(array $params): array
     {
         try {
             return $this->felicioClient->receiveMessage($params)->get('Messages');
@@ -53,7 +54,7 @@ final class Felicio implements FelicioContract
         }
     }
 
-    public function deleteMessage(array $params)
+    public function deleteMessage(array $params): Result
     {
         try {
             return $this->felicioClient->deleteMessage($params);
@@ -62,7 +63,7 @@ final class Felicio implements FelicioContract
         }
     }
 
-    public function countMessages($queue)
+    public function countMessages($queue): int
     {
         $response = $this->felicioClient->getQueueAttributes(
             [

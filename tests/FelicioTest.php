@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Felicio\Test;
 
 use Felicio\Felicio;
@@ -16,7 +18,7 @@ final class FelicioTest extends TestCase
     }
 
     /** @test */
-    public function sendMessageWithoutRequiredParameters()
+    public function sendStandardMessageWithoutRequiredParameters(): void
     {
         $this->expectException(ArgumentCountError::class);
 
@@ -29,11 +31,24 @@ final class FelicioTest extends TestCase
     }
 
     /** @test */
-    public function sendMessage()
+    public function sendStandardMessage(): void
     {
         $params = [
             'QueueUrl' => '',
             'MessageBody' => 'Message 001'
+        ];
+
+        $this->assertIsString($this->instance->sendMessage($params));
+    }
+
+    /** @test */
+    public function sendFifoMessage(): void
+    {
+        $params = [
+            'QueueUrl' => '.fifo', //required
+            'MessageBody' => 'Message 001',
+            'MessageDeduplicationId' => 'acac6e8f4ec9f44abc445945e76bf209',
+            'MessageGroupId' => '2fe6a413d02e3adef70256a36bf3b969',
         ];
 
         $this->assertIsString($this->instance->sendMessage($params));
@@ -61,7 +76,7 @@ final class FelicioTest extends TestCase
             'ReceiptHandle' => '', //required
         ];
 
-        $this->assertEmpty($this->instance->deleteMessage($params));
+        $this->assertIsObject($this->instance->deleteMessage($params));
     }
 
     /** @test */

@@ -4,6 +4,14 @@
 
 ## Unreleased
 
+- [#8] update CHANGELOG.md, Thanks to [@geekcom]
+
+<!-- dumped content end -->
+
+<!-- dumped content start -->
+
+## Unreleased
+
 - [#7] update tests, add minor corrections, general improvements, Thanks to [@geekcom]
 
 <!-- dumped content end -->
@@ -28,3 +36,4 @@
 [#1]: https://github.com/geekcom/felicio/pull/1
 [@geekcom]: https://github.com/geekcom
 [#7]: https://github.com/geekcom/felicio/pull/7
+[#8]: https://github.com/geekcom/felicio/pull/8
