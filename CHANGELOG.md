@@ -4,6 +4,14 @@
 
 ## Unreleased
 
+- [#9] strict_types, new tests, Thanks to [@geekcom]
+
+<!-- dumped content end -->
+
+<!-- dumped content start -->
+
+## Unreleased
+
 - [#8] update CHANGELOG.md, Thanks to [@geekcom]
 
 <!-- dumped content end -->
@@ -37,3 +45,4 @@
 [@geekcom]: https://github.com/geekcom
 [#7]: https://github.com/geekcom/felicio/pull/7
 [#8]: https://github.com/geekcom/felicio/pull/8
+[#9]: https://github.com/geekcom/felicio/pull/9
