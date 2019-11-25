@@ -55,7 +55,7 @@ final class FelicioTest extends TestCase
     }
 
     /** @test */
-    public function receiveMessage()
+    public function receiveMessage(): void
     {
         $params = [
             'AttributeNames' => ['SentTimestamp'],
@@ -69,7 +69,7 @@ final class FelicioTest extends TestCase
     }
 
     /** @test */
-    public function deleteMessage()
+    public function deleteMessage(): void
     {
         $params = [
             'QueueUrl' => '', //required
@@ -80,7 +80,7 @@ final class FelicioTest extends TestCase
     }
 
     /** @test */
-    public function deleteMessageWithoutParameters()
+    public function deleteMessageWithoutParameters(): void
     {
         $this->expectException(ArgumentCountError::class);
 
@@ -93,7 +93,7 @@ final class FelicioTest extends TestCase
     }
 
     /** @test */
-    public function ifExistsMessage()
+    public function ifExistsMessage(): void
     {
         $queueUrl = ''; //required
 
