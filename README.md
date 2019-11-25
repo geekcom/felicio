@@ -2,7 +2,7 @@
 _A simple AWS SQS Messages with PHP_
 
 [![Latest Stable Version](https://poser.pugx.org/geekcom/felicio/v/stable)](https://packagist.org/packages/geekcom/felicio)
-[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.3-blue.svg?style=flat-square)](https://php.net/)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.4-blue.svg?style=flat-square)](https://php.net/)
 [![License](https://poser.pugx.org/geekcom/felicio/license)](https://packagist.org/packages/geekcom/felicio)
 
 ### About Felicio and SQS
