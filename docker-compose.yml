@@ -1,10 +1,8 @@
 version: '3'
 services:
   app:
-    image: ambientum/php:7.3
-    container_name: felicio
+    build: .docker
+    container_name: laika
     volumes:
       - .:/var/www/app
-    environment:
-      - XDEBUG_ENABLED=true
     tty: true

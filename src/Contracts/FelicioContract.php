@@ -8,7 +8,7 @@ use Aws\Result;
 
 interface FelicioContract
 {
-    public function sendMessage(array $params): ?string;
+    public function sendMessage(array $params): string;
 
     public function receiveMessage(array $params): array;
 
