@@ -2,7 +2,7 @@ version: '3'
 services:
   app:
     build: .docker
-    container_name: laika
+    container_name: felicio
     volumes:
       - .:/var/www/app
     tty: true

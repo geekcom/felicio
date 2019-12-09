@@ -16,6 +16,7 @@
   ],
   "require": {
     "php": ">=7.4",
+    "ext-zend-opcache": "*",
     "aws/aws-sdk-php": "^3.110",
     "symfony/dotenv": "^4.3"
   },

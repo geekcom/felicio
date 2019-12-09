@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 final class FelicioTest extends TestCase
 {
-    private $instance;
+    private Felicio $instance;
 
     public function setUp(): void
     {
@@ -85,8 +85,8 @@ final class FelicioTest extends TestCase
         $this->expectException(ArgumentCountError::class);
 
         $params = [
-            'QueueUrl' => '', //required
-            'ReceiptHandle' => '', //required
+            'QueueUrl' => '',
+            'ReceiptHandle' => '',
         ];
 
         $this->instance->deleteMessage($params);
@@ -97,6 +97,6 @@ final class FelicioTest extends TestCase
     {
         $queueUrl = ''; //required
 
-        $this->assertGreaterThan(1, $this->instance->countMessages($queueUrl));
+        $this->assertGreaterThan(0, $this->instance->countMessages($queueUrl));
     }
 }
