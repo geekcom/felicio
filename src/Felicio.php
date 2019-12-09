@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Felicio;
 
+use Aws\Sqs\SqsClient;
 use Felicio\Contracts\FelicioContract;
 use Aws\Sdk;
 use Aws\Exception\AwsException;
@@ -13,7 +14,7 @@ use Symfony\Component\Dotenv\Dotenv;
 
 final class Felicio implements FelicioContract
 {
-    protected $felicioClient;
+    protected SqsClient $felicioClient;
 
     public function __construct($felicioDotFile)
     {
