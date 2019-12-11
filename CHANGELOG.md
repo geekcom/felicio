@@ -2,6 +2,15 @@
 
 <!-- dumped content start -->
 
+## [2.5.0]
+
+- [#12] Develop, Thanks to [@geekcom]
+- [#11] Develop, Thanks to [@geekcom]
+
+<!-- dumped content end -->
+
+<!-- dumped content start -->
+
 ## Unreleased
 
 - [#10] update CHANGELOG.md, Thanks to [@geekcom]
@@ -55,3 +64,5 @@
 [#8]: https://github.com/geekcom/felicio/pull/8
 [#9]: https://github.com/geekcom/felicio/pull/9
 [#10]: https://github.com/geekcom/felicio/pull/10
+[#12]: https://github.com/geekcom/felicio/pull/12
+[#11]: https://github.com/geekcom/felicio/pull/11

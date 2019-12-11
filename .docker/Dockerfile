@@ -10,10 +10,9 @@ RUN apt-get update && apt-get install -y \
 # Build and install PHP extensions #
 RUN docker-php-ext-install zip
 
-# install configure xdebug
+# install and configure xdebug
 RUN pecl install xdebug-2.8.0 \
-    && docker-php-ext-enable xdebug \
-    && echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)"
+    && docker-php-ext-enable xdebug
 
 # install composer
 RUN apt-get update && \
