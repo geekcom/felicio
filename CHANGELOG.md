@@ -2,6 +2,14 @@
 
 <!-- dumped content start -->
 
+## [2.5.1]
+
+- [#13] docker support for Xdebug, Thanks to [@geekcom]
+
+<!-- dumped content end -->
+
+<!-- dumped content start -->
+
 ## [2.5.0]
 
 - [#12] Develop, Thanks to [@geekcom]
@@ -66,3 +74,4 @@
 [#10]: https://github.com/geekcom/felicio/pull/10
 [#12]: https://github.com/geekcom/felicio/pull/12
 [#11]: https://github.com/geekcom/felicio/pull/11
+[#13]: https://github.com/geekcom/felicio/pull/13
