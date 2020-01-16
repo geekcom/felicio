@@ -10,7 +10,7 @@ interface FelicioContract
 {
     public function sendMessage(array $params): string;
 
-    public function receiveMessage(array $params): array;
+    public function receiveMessage(array $params): ?array;
 
     public function deleteMessage(array $params): Result;
 }
