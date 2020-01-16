@@ -46,7 +46,7 @@ final class Felicio implements FelicioContract
         }
     }
 
-    public function receiveMessage(array $params): array
+    public function receiveMessage(array $params): ?array
     {
         try {
             return $this->felicioClient->receiveMessage($params)->get('Messages');
