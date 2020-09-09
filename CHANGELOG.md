@@ -2,8 +2,18 @@
 
 <!-- dumped content start -->
 
+## [2.5.2]
+
+- [#16] Melhorias gerais, Thanks to [@geekcom]
+
+<!-- dumped content end -->
+
+<!-- dumped content start -->
+
 ## [2.5.1]
 
+- [#15] aditional tpe check, suport to scrutinizer CI, Thanks to [@geekcom]
+- [#14] update CHANGELOG.md, Thanks to [@geekcom]
 - [#13] docker support for Xdebug, Thanks to [@geekcom]
 
 <!-- dumped content end -->
@@ -75,3 +85,6 @@
 [#12]: https://github.com/geekcom/felicio/pull/12
 [#11]: https://github.com/geekcom/felicio/pull/11
 [#13]: https://github.com/geekcom/felicio/pull/13
+[#16]: https://github.com/geekcom/felicio/pull/16
+[#15]: https://github.com/geekcom/felicio/pull/15
+[#14]: https://github.com/geekcom/felicio/pull/14
