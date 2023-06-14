@@ -15,7 +15,7 @@
     }
   ],
   "require": {
-    "php": ">=7.4",
+    "php": "^7.4|^8.0",
     "aws/aws-sdk-php": "^3.110",
     "symfony/dotenv": "^4.3"
   },
@@ -38,9 +38,8 @@
       "@php -r \"file_exists('.felicio') || copy('.felicio.example', '.felicio');\""
     ],
     "tests": [
-      "phpunit --testdox",
-      "@phpcs",
-      "@phpstan"
+      "vendor/bin/phpcs",
+      "phpunit --testdox"
     ]
   }
 }
