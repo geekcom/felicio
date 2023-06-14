@@ -5,5 +5,4 @@ services:
     container_name: felicio
     volumes:
       - .:/var/www/app
-      - ".docker/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
     tty: true
