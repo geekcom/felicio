@@ -1,29 +1,26 @@
-FROM php:7.4
+FROM php:8.4-cli
 
 LABEL maintainer="geekcom"
 
 RUN apt-get update && apt-get install -y \
     curl \
+    git \
+    unzip \
     libzip-dev \
-    git
+    && rm -rf /var/lib/apt/lists/*
 
-# Build and install PHP extensions #
 RUN docker-php-ext-install zip
 
-# install and configure xdebug
-RUN pecl install xdebug-2.8.0 \
+# Xdebug
+RUN pecl install xdebug \
     && docker-php-ext-enable xdebug
 
-# install composer
-RUN apt-get update && \
-    apt-get -y install curl && \
-    curl -sS https://getcomposer.org/installer | \
-    php -- --install-dir=/usr/bin/ --filename=composer
+# Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# install PHPCS
-RUN cd /opt && \
-    curl -LO https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar && \
-    cp phpcs.phar /usr/local/bin/phpcs && \
-    chmod +x /usr/local/bin/phpcs
+# PHP CodeSniffer
+RUN curl -fsSL https://phars.phpcodesniffer.com/phpcs.phar \
+    -o /usr/local/bin/phpcs \
+    && chmod +x /usr/local/bin/phpcs
 
-WORKDIR "/var/www/app"
+WORKDIR /var/www/app

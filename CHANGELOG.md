@@ -1,3 +1,7 @@
+## [3.0.0]
+- Removed support for changelog-linker;
+- Library fully updated; check the version's Pull Request for more details.
+
 <!-- changelog-linker -->
 
 <!-- dumped content start -->

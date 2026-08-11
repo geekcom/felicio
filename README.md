@@ -3,7 +3,7 @@ _A simple AWS SQS Messages with PHP_
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/geekcom/felicio/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/geekcom/felicio/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/geekcom/felicio/v/stable)](https://packagist.org/packages/geekcom/felicio)
-[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.4-blue.svg?style=flat-square)](https://php.net/)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%208.4-blue.svg?style=flat-square)](https://php.net/)
 [![License](https://poser.pugx.org/geekcom/felicio/license)](https://packagist.org/packages/geekcom/felicio)
 
 ### About Felicio and SQS
@@ -29,7 +29,7 @@ Or in your file'composer.json' add:
 ```json
 {
     "require": {
-        "geekcom/felicio": "^2.5.0"
+        "geekcom/felicio": "^3.0.0"
     }
 }
 ```
