@@ -6,6 +6,7 @@ namespace Felicio\Test;
 
 use Felicio\Felicio;
 use ArgumentCountError;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 final class FelicioTest extends TestCase
@@ -17,7 +18,7 @@ final class FelicioTest extends TestCase
         $this->instance = new Felicio(__DIR__ . '/../.felicio');
     }
 
-    /** @test */
+    #[Test]
     public function sendStandardMessageWithoutRequiredParameters(): void
     {
         $this->expectException(ArgumentCountError::class);
@@ -30,7 +31,7 @@ final class FelicioTest extends TestCase
         $this->instance->sendMessage($params);
     }
 
-    /** @test */
+    #[Test]
     public function sendStandardMessage(): void
     {
         $params = [
@@ -41,7 +42,7 @@ final class FelicioTest extends TestCase
         $this->assertIsString($this->instance->sendMessage($params));
     }
 
-    /** @test */
+    #[Test]
     public function sendFifoMessage(): void
     {
         $params = [
@@ -54,7 +55,7 @@ final class FelicioTest extends TestCase
         $this->assertIsString($this->instance->sendMessage($params));
     }
 
-    /** @test */
+    #[Test]
     public function receiveMessage(): void
     {
         $params = [
@@ -68,7 +69,7 @@ final class FelicioTest extends TestCase
         $this->assertIsArray($this->instance->receiveMessage($params));
     }
 
-    /** @test */
+    #[Test]
     public function deleteMessage(): void
     {
         $params = [
@@ -79,7 +80,7 @@ final class FelicioTest extends TestCase
         $this->assertIsObject($this->instance->deleteMessage($params));
     }
 
-    /** @test */
+    #[Test]
     public function deleteMessageWithoutParameters(): void
     {
         $this->expectException(ArgumentCountError::class);
@@ -92,7 +93,7 @@ final class FelicioTest extends TestCase
         $this->instance->deleteMessage($params);
     }
 
-    /** @test */
+    #[Test]
     public function ifExistsMessage(): void
     {
         $queueUrl = ''; //required

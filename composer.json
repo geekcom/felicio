@@ -1,5 +1,6 @@
 {
   "name": "geekcom/felicio",
+  "version": "3.0.0",
   "description": "A simple lib to connect PHP with AWS SQS",
   "homepage": "https://github.com/geekcom/felicio",
   "license": "MIT",
@@ -15,12 +16,12 @@
     }
   ],
   "require": {
-    "php": "^7.4|^8.0",
-    "aws/aws-sdk-php": "^3.110",
-    "symfony/dotenv": "^4.3"
+    "php": ">=8.4",
+    "aws/aws-sdk-php": "^3.391.2",
+    "symfony/dotenv": "^v8.1.2"
   },
   "require-dev": {
-    "phpunit/phpunit": "^10",
+    "phpunit/phpunit": "^13.3.0",
     "squizlabs/php_codesniffer": "*"
   },
   "autoload": {
@@ -36,10 +37,6 @@
   "scripts": {
     "post-root-package-install": [
       "@php -r \"file_exists('.felicio') || copy('.felicio.example', '.felicio');\""
-    ],
-    "tests": [
-      "vendor/bin/phpcs",
-      "phpunit --testdox"
     ]
   }
 }
