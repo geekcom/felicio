@@ -1,27 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="vendor/autoload.php" cacheResult="false" backupGlobals="false" colors="true" processIsolation="false" stopOnFailure="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.2/phpunit.xsd" cacheDirectory=".phpunit.cache" backupStaticProperties="false">
-  <coverage>
-    <report>
-      <html outputDirectory="tests/logs/coverage" lowUpperBound="35" highLowerBound="70"/>
-    </report>
-  </coverage>
-  <testsuites>
-    <testsuite name="Felicio">
-      <directory>./tests/</directory>
-    </testsuite>
-  </testsuites>
-  <logging>
-    <testdoxHtml outputFile="tests/logs/testdox/testdox.html"/>
-    <testdoxText outputFile="tests/logs/testdox/testdox.txt"/>
-  </logging>
-  <source>
-    <include>
-      <directory>./src/</directory>
-    </include>
-  </source>
-</phpunit>
-=======
 <phpunit
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         bootstrap="vendor/autoload.php"
@@ -61,4 +37,3 @@
         <testdoxText outputFile="tests/logs/testdox/testdox.txt"/>
     </logging>
 </phpunit>
->>>>>>> a56dd7d (update: melhorias gerais)
