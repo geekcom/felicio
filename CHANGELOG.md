@@ -1,3 +1,9 @@
+## [3.1.0]
+- Docker container hardening;
+- x-debug coverage mode added;
+- Updated minimal PHP version at composer.json;
+- Updated phpunit schema to version 13.
+
 ## [3.0.0]
 - Removed support for changelog-linker;
 - Library fully updated; check the version's Pull Request for more details.

@@ -16,7 +16,7 @@
     }
   ],
   "require": {
-    "php": ">=8.4",
+    "php": ">=8.4.1",
     "aws/aws-sdk-php": "^3.391.2",
     "symfony/dotenv": "^v8.1.2"
   },

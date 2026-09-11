@@ -2,6 +2,7 @@
 /vendor
 .felicio
 /tests/logs
-.phpunit.cache
+.phpunit.result.cache
 .phpcs-cache
 phpunit.xml
+.phpunit.cache/
